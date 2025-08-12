@@ -1,4 +1,3 @@
-# regras.py
 REGRAS = [
     {
         "condicoes": {
