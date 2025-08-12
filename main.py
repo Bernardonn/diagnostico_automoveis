@@ -1,12 +1,8 @@
 # main.py
-# Sistema Especialista para Diagnóstico de Falhas em Automóveis
-# Organizado por categorias, com múltiplos diagnósticos e recomendações
-
 from regras import REGRAS
 from motor import aplicar_regras
 
 def perguntar_bool(pergunta):
-    """Pergunta ao usuário e retorna True/False"""
     while True:
         resposta = input(pergunta + " (s/n): ").strip().lower()
         if resposta in ["s", "sim"]:
@@ -17,7 +13,6 @@ def perguntar_bool(pergunta):
             print("Resposta inválida. Digite 's' ou 'n'.")
 
 def coletar_fatos():
-    """Coleta as respostas do usuário e retorna como dicionário"""
     fatos = {}
     print("\n🔋 Categoria: Elétrica e Partida")
     fatos["motor_gira"] = perguntar_bool("Ao girar a chave, o motor gira?")
@@ -46,7 +41,6 @@ def coletar_fatos():
     return fatos
 
 def exibir_resultados(resultados):
-    """Exibe diagnósticos encontrados"""
     print("\n=== 🔍 RESULTADOS DO DIAGNÓSTICO ===")
     if resultados:
         for r in resultados:
@@ -67,7 +61,6 @@ def main():
     resultados = aplicar_regras(fatos, REGRAS)
     exibir_resultados(resultados)
 
-    # Perguntar se o usuário quer rodar novamente
     if perguntar_bool("\nDeseja realizar outro diagnóstico?"):
         main()
 

@@ -1,81 +1,90 @@
+# regras.py
 REGRAS = [
     {
         "condicoes": {
             "motor_gira": False,
-            "luzes_fraqueza": True,
-            "som_click": True
+            "bateria_carregada": False,
         },
-        "conclusao": "Bateria fraca ou descarregada.",
-        "recomendacao": "Verificar carga da bateria e cabos de conexão."
+        "conclusao": "Bateria descarregada",
+        "recomendacao": "Verificar e recarregar a bateria ou substituir se necessário.",
+        "gravidade": "Baixa"
     },
     {
         "condicoes": {
             "motor_gira": False,
-            "luzes_fraqueza": False,
-            "som_click": False
+            "som_click": True,
+            "tanque_vazio": False
         },
-        "conclusao": "Possível problema no motor de arranque ou relé.",
-        "recomendacao": "Verificar motor de partida e sistema elétrico."
+        "conclusao": "Problema no motor de partida ou relé",
+        "recomendacao": "Verificar motor de partida e sistema elétrico.",
+        "gravidade": "Média"
     },
     {
         "condicoes": {
             "motor_gira": True,
-            "tanque_vazio": True
+            "faísca_velas": False,
         },
-        "conclusao": "Veículo sem combustível.",
-        "recomendacao": "Abastecer o veículo."
+        "conclusao": "Problema no sistema de ignição",
+        "recomendacao": "Verificar velas e bobina de ignição.",
+        "gravidade": "Média"
     },
     {
         "condicoes": {
-            "motor_gira": True,
-            "faísca_velas": False
+            "tanque_vazio": True,
         },
-        "conclusao": "Problema no sistema de ignição.",
-        "recomendacao": "Verificar velas e bobina de ignição."
-    },
-    {
-        "condicoes": {
-            "bateria_carregada": False,
-            "queda_tensao_motor_ligado": True
-        },
-        "conclusao": "Alternador com defeito.",
-        "recomendacao": "Verificar alternador e regulador de tensão."
-    },
-    {
-        "condicoes": {
-            "luz_injecao": True,
-            "fumaça_preta": True
-        },
-        "conclusao": "Problema na mistura ar/combustível.",
-        "recomendacao": "Verificar injetores e sensor de oxigênio."
+        "conclusao": "Veículo sem combustível",
+        "recomendacao": "Abastecer o veículo.",
+        "gravidade": "Baixa"
     },
     {
         "condicoes": {
             "temperatura_alta": True,
-            "liquido_arrefecimento_baixo": True
+            "liquido_arrefecimento_baixo": True,
         },
-        "conclusao": "Superaquecimento por falta de líquido de arrefecimento.",
-        "recomendacao": "Completar líquido e verificar possíveis vazamentos."
+        "conclusao": "Superaquecimento por falta de líquido de arrefecimento",
+        "recomendacao": "Completar líquido e verificar possíveis vazamentos.",
+        "gravidade": "Alta"
     },
     {
         "condicoes": {
-            "ruido_metalico": True
+            "luzes_fraqueza": True,
+            "queda_tensao_motor_ligado": True,
         },
-        "conclusao": "Problema mecânico interno grave.",
-        "recomendacao": "Não dirigir; levar para oficina imediatamente."
+        "conclusao": "Alternador com defeito",
+        "recomendacao": "Verificar alternador e regulador de tensão.",
+        "gravidade": "Alta"
     },
     {
         "condicoes": {
-            "freios_falhando": True
+            "freios_falhando": True,
         },
-        "conclusao": "Sistema de freios comprometido.",
-        "recomendacao": "Verificar pastilhas, discos e fluido de freio."
+        "conclusao": "Sistema de freios comprometido",
+        "recomendacao": "Verificar pastilhas, discos e fluido de freio.",
+        "gravidade": "Média"
     },
     {
         "condicoes": {
-            "direcao_dura": True
+            "direcao_dura": True,
         },
-        "conclusao": "Problema na direção hidráulica/assistida.",
-        "recomendacao": "Verificar fluido e bomba de direção."
+        "conclusao": "Problema na direção hidráulica ou assistida",
+        "recomendacao": "Verificar fluido e bomba de direção.",
+        "gravidade": "Baixa"
+    },
+    {
+        "condicoes": {
+            "ruido_metalico": True,
+        },
+        "conclusao": "Ruído metálico no motor - possível desgaste ou folga",
+        "recomendacao": "Levar para análise mecânica detalhada.",
+        "gravidade": "Alta"
+    },
+    {
+        "condicoes": {
+            "luz_injecao": True,
+            "fumaça_preta": True,
+        },
+        "conclusao": "Problema na injeção eletrônica",
+        "recomendacao": "Levar para diagnóstico com scanner automotivo.",
+        "gravidade": "Alta"
     }
 ]
