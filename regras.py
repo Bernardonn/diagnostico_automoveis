@@ -1,0 +1,1 @@
+# Base de conhecimento (10+ regras)
